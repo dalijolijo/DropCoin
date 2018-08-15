@@ -772,7 +772,7 @@ function get_mp_text(mp) {
 	if (day < 10) day = "0" + day;
 	var str = "";
 	//str += "Created on " + month + "/" + day + "/" + year + ".\n";
-	str += "This is a DropCoin envelope for bitcores.\n";
+	str += "This is a DropCoin envelope for bitcores. \n";
 	str += "Funds can be claimed at https://bitcore.cc/DropCoin/ or https://dropcoins.cc .\n";
 	str += "You can modify this file, but DO NOT modify the text below.\n\n";
 	str += "========== DO NOT MODIFY ==========\n";
