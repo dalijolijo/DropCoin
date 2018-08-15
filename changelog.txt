@@ -1,0 +1,11 @@
+DropCoin.cc v1.1
+
+DropCoin-v1.1 - 15.08.18
+- Change to lower sending Fees
+- Rename and restructure Outputfile
+- Add Bitcore US Dollar Rate
+- Add Bitcore Insight Explorer
+- Rebuild Coin Support for Bitcore BTX
+- Rename moneypacket to DropCoin
+- Base with MIT License v1.0 - https://github.com/woodser/moneypacket.org
+

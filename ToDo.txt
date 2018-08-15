@@ -1,0 +1,48 @@
+/**
+ * HIGH
+ * bugs in the rendering of total with mBtc and bits
+ * collapse flows, create new money packet rolls into transactions
+ * 
+ * MEDIUM:
+ * zero fee transaction
+ * gpg
+ * mobile
+ * hd
+ * password recovery service
+ * allow funds to be viewable
+ * fireworks for tips
+ * password requirements, especially with bip38
+ * modifying textarea causes page to advance, only initial paste
+ * play with URLs, e.g. add URL to file then one click claim
+ * FAQ and/or video
+ * link to where you can spend bitcoins on success screens
+ * breadcrumb trail?
+ * auto-delete invalid paste
+ * 
+ * LOW:
+ * super streamlined claim option?
+ * make a giant green claim button to reinforce the idea that sender has access?
+ * offline mode isn't reliably detected
+ * keyboard navigation through most of it?
+ * rather than positive amt, positive amt above and beyond dust
+ * use bitcoin qr code generator instead
+ * reconcile imported vs unlocked terminology
+ * when adding funds to unlocked, display add amount plus new balance
+ * prevent text overlay when flipping quickly?
+ * import, unlock, then go back and wrong password, should probably clear. or don't allow password again
+ * clearly state browser requirements
+ * allow qr codes to be opened with wallet
+ * if invalid mp upload, clear upload form
+ * refactor to be truly object-oriented?
+ * inconsistent naming convention from _error to _msg
+ * realtime amount validations do not report negative amounts
+ * automatically import mp after new mp created and funded
+ * set expiration date to claim funds before they're returned
+ * compute minimum send amount and pre-validate in forms instead of try catch
+ * Give credit to BitPay for BitCore and recommend CoPay as the best wallet I have used to date
+ * Step by step both the features and the process.
+ * Sender may continue to add funds to a money packet at any time. (HD coming eventually, if possible)
+ * mouse movements to generate private key
+ */
+
+ 
