@@ -772,8 +772,8 @@ function get_mp_text(mp) {
 	if (day < 10) day = "0" + day;
 	var str = "";
 	//str += "Created on " + month + "/" + day + "/" + year + ".\n";
-	str += "This is a money packet envelope for bitcoins.\n";
-	str += "Funds can be claimed at https://moneypacket.org.\n";
+	str += "This is a DropCoin envelope for bitcores.\n";
+	str += "Funds can be claimed at https://bitcore.cc/DropCoin/ or https://dropcoins.cc .\n";
 	str += "You can modify this file, but DO NOT modify the text below.\n\n";
 	str += "========== DO NOT MODIFY ==========\n";
 	str += JSON.stringify(mp) + "\n";
@@ -794,7 +794,7 @@ function get_mp_name() {
 	if (min < 10) min = "0" + min;
 	var sec = date.getSeconds();
 	if (sec < 10) sec = "0" + sec;
-	return "money_packet_" + year + month + day + hour + min + ".txt";
+	return "btx_dropcoin_" + year + month + day + hour + min + ".txt";
 }
 
 /**
