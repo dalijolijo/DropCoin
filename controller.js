@@ -849,22 +849,22 @@ function on_claim_mp_send() {
 			tx.to(claim_mp_public_address, unit_to_satoshis(send_amt, 0)).sign(imported_private_key);
 			try {
 				insight.broadcast(tx, function(err, txid) {
-			    	if (err) {
-			    		throw err;
-			    	} else {
-			    		send_msg.text("");
-			    		$("#claim_mp_done_old_balance").css("color", "black").text("..");
-			    		$("#claim_mp_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(unit_to_satoshis(send_amt)));
-			    		page_manager.next("claim_mp_done_page");
-			    	}
-			    });
-		    } catch(err) {
-		    	if (err.toString().indexOf("Dust amount") != -1) {
-	    			send_msg.css("color", "red").text("Send amount is too small.");
-	    		} else {
-	    			send_msg.css("color", "red").text("Error sending funds: " + err.toString());
-	    		}
-		    }
+					if (err) {
+						throw err;
+					} else {
+						send_msg.text("");
+						$("#claim_mp_done_old_balance").css("color", "black").text("..");
+						$("#claim_mp_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(unit_to_satoshis(send_amt)));
+						page_manager.next("claim_mp_done_page");
+					}
+				});
+			} catch(err) {
+				if (err.toString().indexOf("Dust amount") != -1) {
+					send_msg.css("color", "red").text("Send amount is too small.");
+				} else {
+					send_msg.css("color", "red").text("Error sending funds: " + err.toString());
+				}
+			}
 		}
 	}
 }
@@ -990,22 +990,22 @@ function on_claim_mp_send_full_balance() {
 			tx.to(claim_mp_public_address, send_amt).sign(imported_private_key);
 			try {
 				insight.broadcast(tx, function(err, txid) {
-			    	if (err) {
-			    		throw err;
-			    	} else {
-			    		send_msg.text("");
-			    		$("#claim_mp_done_old_balance").css("color", "black").text("..");
-			    		$("#claim_mp_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(send_amt));
-			    		page_manager.next("claim_mp_done_page");
-			    	}
-			    });
-		    } catch(err) {
-		    	if (err.toString().indexOf("Dust amount") != -1) {
-	    			send_msg.css("color", "red").text("Send amount is too small.");
-	    		} else {
-	    			send_msg.css("color", "red").text("Error sending funds: " + err.toString());
-	    		}
-		    }
+					if (err) {
+						throw err;
+					} else {
+						send_msg.text("");
+						$("#claim_mp_done_old_balance").css("color", "black").text("..");
+						$("#claim_mp_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(send_amt));
+						page_manager.next("claim_mp_done_page");
+					}
+				});
+			} catch(err) {
+				if (err.toString().indexOf("Dust amount") != -1) {
+					send_msg.css("color", "red").text("Send amount is too small.");
+				} else {
+					send_msg.css("color", "red").text("Error sending funds: " + err.toString());
+				}
+			}
 		}
 	}
 }
@@ -1027,28 +1027,28 @@ function on_claim_address_full_balance() {
 		if (send_amt == 0) {
 			$("#claim_address_amt_msg").css("color", "red").text("Insufficient funds to make transaction");
 		} else if (address_msg == "Valid") {
-    		$("#claim_address_amt_msg").text("");
+			$("#claim_address_amt_msg").text("");
 			if (!confirm("Send the full balance to " + send_address + "?")) return;
 			tx.to(send_address, send_amt).sign(imported_private_key);
 			try {
 				insight.broadcast(tx, function(err, txid) {
-			    	if (err) {
-			    		throw err;
-			    	} else {
-			    		send_msg.text("");
-			    		$("#claim_address_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(send_amt));
-			    		$("#claim_address_done_address").text(send_address);
-			    		$("#claim_address_done_balance").css("color","black").text("..");
-			    		page_manager.next("claim_address_done_page");
-			    	}
-			    });
-		    } catch(err) {
-		    	if (err.toString().indexOf("Dust amount") != -1) {
-	    			send_msg.css("color", "red").text("Send amount is too small.");
-	    		} else {
-	    			send_msg.css("color", "red").text("Error sending funds: " + err.toString());
-	    		}
-		    }
+					if (err) {
+						throw err;
+					} else {
+						send_msg.text("");
+						$("#claim_address_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(send_amt));
+						$("#claim_address_done_address").text(send_address);
+						$("#claim_address_done_balance").css("color","black").text("..");
+						page_manager.next("claim_address_done_page");
+					}
+				});
+			} catch(err) {
+				if (err.toString().indexOf("Dust amount") != -1) {
+					send_msg.css("color", "red").text("Send amount is too small.");
+				} else {
+					send_msg.css("color", "red").text("Error sending funds: " + err.toString());
+				}
+			}
 		} else {
 			$("#claim_address_msg").css("color","red").text(address_msg);
 		}
@@ -1085,23 +1085,23 @@ function on_claim_address_send() {
 			tx.to(send_address, unit_to_satoshis(send_amt, 0)).sign(imported_private_key);
 			try {
 				insight.broadcast(tx, function(err, txid) {
-			    	if (err) {
-			    		throw err;
-			    	} else {
-			    		send_msg.text("");
-			    		$("#claim_address_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(unit_to_satoshis(send_amt)));
-			    		$("#claim_address_done_address").text(send_address);
-			    		$("#claim_address_done_balance").css("color","black").text("..");
-			    		page_manager.next("claim_address_done_page");
-			    	}
-			    });
-		    } catch(err) {
-		    	if (err.toString().indexOf("Dust amount") != -1) {
-	    			send_msg.css("color", "red").text("Send amount is too small.");
-	    		} else {
-	    			send_msg.css("color", "red").text("Error sending funds: " + err.toString());
-	    		}
-		    }
+					if (err) {
+						throw err;
+					} else {
+						send_msg.text("");
+						$("#claim_address_done_transfer_amt").css("color", "green").text(satoshis_to_unit_label(unit_to_satoshis(send_amt)));
+						$("#claim_address_done_address").text(send_address);
+						$("#claim_address_done_balance").css("color","black").text("..");
+						page_manager.next("claim_address_done_page");
+					}
+				});
+			} catch(err) {
+				if (err.toString().indexOf("Dust amount") != -1) {
+					send_msg.css("color", "red").text("Send amount is too small.");
+				} else {
+					send_msg.css("color", "red").text("Error sending funds: " + err.toString());
+				}
+			}
 		} else {
 			if (address_msg != "Valid") $("#claim_address_msg").css("color","red").text(address_msg);
 			if (amt_msg != "Valid") $("#claim_address_amt_msg").css("color","red").text(amt_msg);
@@ -1517,9 +1517,9 @@ function validate_address(address) {
 
 function get_currency_symbol(code) {
 	var currency_symbols = {
-	    'USD': '$', // US Dollar
-	    'EUR': '€', // Euro
-	    'GBP': '£', // British Pound Sterling
+		'USD': '$', // US Dollar
+		'EUR': '€', // Euro
+		'GBP': '£', // British Pound Sterling
 	};
 	var symbol = currency_symbols[code];
 	return symbol === undefined ? null : symbol;
@@ -1546,25 +1546,25 @@ function draw_checkmark(canvas_id) {
 	ctx.strokeStyle = 'rgba(0, 150, 0, 1)';
 
 	for (i = start; i < mid; i++) {
-	    var drawLeft = window.setTimeout(function () {
-	        ctx.beginPath();
-	        ctx.moveTo(start, start);
-	        ctx.lineTo(leftX, leftY);
-	        ctx.stroke();
-	        leftX++;
-	        leftY++;
-	    }, 1 + (i * animationSpeed) / 3);
+		var drawLeft = window.setTimeout(function () {
+			ctx.beginPath();
+			ctx.moveTo(start, start);
+			ctx.lineTo(leftX, leftY);
+			ctx.stroke();
+			leftX++;
+			leftY++;
+		}, 1 + (i * animationSpeed) / 3);
 	}
 
 	for (i = mid; i < end; i++) {
-	    var drawRight = window.setTimeout(function () {
-	        ctx.beginPath();
-	        ctx.moveTo(leftX, leftY);
-	        ctx.lineTo(rightX, rightY);
-	        ctx.stroke();
-	        rightX++;
-	        rightY--;
-	    }, 1 + (i * animationSpeed) / 3);
+		var drawRight = window.setTimeout(function () {
+			ctx.beginPath();
+			ctx.moveTo(leftX, leftY);
+			ctx.lineTo(rightX, rightY);
+			ctx.stroke();
+			rightX++;
+			rightY--;
+		}, 1 + (i * animationSpeed) / 3);
 	}
 }
 
